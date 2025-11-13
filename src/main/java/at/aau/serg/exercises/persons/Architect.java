@@ -1,7 +1,7 @@
 package at.aau.serg.exercises.persons;
 
 public class Architect extends Person {
-    private String field;
+    private ArchitectureField field;
 
     @Override
     public String getJobBeschreibung() {
@@ -9,7 +9,7 @@ public class Architect extends Person {
     }
 
     public Architect(String firstname, String lastname, Integer age,
-                     String field) {
+                     ArchitectureField field) {
         super(firstname, lastname, age);
         this.field = field;
     }
