@@ -2,33 +2,39 @@ package at.aau.serg.exercises.bills;
 
 public class SmellyClass {
 
-    public void erstelleRechnung(Order order) {
-
-        //calculate temporary price
-        Double totalPrice=order.calculateTotalPrice();;
-
-        //check for shipping costs
-        if(totalPrice<=100) {
-            Item item = new Item();
-            item.setId(99l);
-            item.setName("Porto und Versand");
-            if(totalPrice>90) {
-                item.setPrice(totalPrice*0.05);
-            } else if(totalPrice>50) {
-                item.setPrice(7.5d);
+    private void addShippingItem(Order order, Double currentPrice) {
+        // check for shipping costs
+        if (currentPrice <= 100) {
+            Item shippingItem = new Item();
+            shippingItem.setId(99l);
+            shippingItem.setName("Postage and Shipping");
+            Double shippingPrice;
+            if (currentPrice > 90) {
+                shippingPrice = currentPrice * 0.05;
+            } else if (currentPrice > 50) {
+                shippingPrice = 7.5d;
             } else {
-                item.setPrice(10d);
+                shippingPrice = 10d;
             }
 
-            order.getItems().add(item);
+            shippingItem.setPrice(shippingPrice);
+            order.getItems().add(shippingItem);
         }
+    }
 
-        totalPrice=order.calculateTotalPrice();
+    public void createInvoice(Order order) {
 
-        System.out.println("Rechnung:");
+        //calculate temporary price
+        Double initialPrice=order.calculateTotalPrice();
+        //check for shipping costs
+        addShippingItem(order, initialPrice);
+
+        Double finalPrice =order.calculateTotalPrice();
+
+        System.out.println("Bill:");
         for (Item item : order.getItems()) {
             System.out.println(item.getName()+": "+item.getPrice());
         }
-        System.out.println("Total: "+totalPrice);
+        System.out.println("Total: "+finalPrice);
     }
 }

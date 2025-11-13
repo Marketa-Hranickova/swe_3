@@ -10,7 +10,7 @@ public class Order {
 
     public Double calculateTotalPrice() {
         Double totalPrice = 0.0d;
-        for (Item item : items) { // Zde se používá přímo pole 'items' (nebo getter)
+        for (Item item : items) {
             totalPrice += item.getPrice();
         }
         return totalPrice;
