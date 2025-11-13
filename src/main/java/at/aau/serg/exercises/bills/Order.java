@@ -8,6 +8,14 @@ public class Order {
     private Customer customer;
     private List<Item> items;
 
+    public Double calculateTotalPrice() {
+        Double totalPrice = 0.0d;
+        for (Item item : items) { // Zde se používá přímo pole 'items' (nebo getter)
+            totalPrice += item.getPrice();
+        }
+        return totalPrice;
+    }
+
     public Long getId() {
         return id;
     }

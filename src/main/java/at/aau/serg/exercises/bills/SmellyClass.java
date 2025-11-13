@@ -5,10 +5,7 @@ public class SmellyClass {
     public void erstelleRechnung(Order order) {
 
         //calculate temporary price
-        Double totalPrice=0.0d;
-        for (Item item : order.getItems()) {
-            totalPrice+=item.getPrice();
-        }
+        Double totalPrice=order.calculateTotalPrice();;
 
         //check for shipping costs
         if(totalPrice<=100) {
@@ -26,10 +23,7 @@ public class SmellyClass {
             order.getItems().add(item);
         }
 
-        totalPrice=0.0d;
-        for (Item item : order.getItems()) {
-            totalPrice+=item.getPrice();
-        }
+        totalPrice=order.calculateTotalPrice();
 
         System.out.println("Rechnung:");
         for (Item item : order.getItems()) {
