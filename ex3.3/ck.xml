@@ -3,31 +3,31 @@ Put the results in this file. Additionally, provide any
 necessary documentation as files next to this file
 -->
 <results>
-    <firstname>VALUE</firstname>
-    <lastname>VALUE</lastname>
-    <studentId>VALUE</studentId>
+    <firstname>Markéta</firstname>
+    <lastname>Hraničková</lastname>
+    <studentId>12420931</studentId>
 
     <dit>
-        <C>VALUE</C>
-        <G>VALUE</G>
-        <K>VALUE</K>
+        <C>1</C>
+        <G>3</G>
+        <K>0</K>
     </dit>
     <noc>
-        <A>VALUE</A>
-        <C>VALUE</C>
-        <J>VALUE</J>
+        <A>2</A>
+        <C>1</C>
+        <J>0</J>
     </noc>
     <cbo>
-        <C>VALUE</C>
-        <H>VALUE</H>
+        <C>3</C>
+        <H>2</H>
     </cbo>
     <rfc>
-        <C>VALUE</C>
+        <C>6</C>
     </rfc>
     <lcom>
-        <E>VALUE</E>
+        <E>0</E>
     </lcom>
     <wmc>
-        <G>VALUE</G>
+        <G>5</G>
     </wmc>
 </results>
