@@ -4,4 +4,9 @@ public class Developer extends Person {
     public String preferredProgrammingLanguage;
     public String ide;
     public boolean database;
+
+    @Override
+    public String getJobBeschreibung() {
+        return "Develops code.";
+    }
 }
