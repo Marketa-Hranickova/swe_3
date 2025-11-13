@@ -8,18 +8,34 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MyMathTest {
 
     @Test
-    public void x() {
-        Double x=10d;
-        Double y=5d;
-        Double add=new MyMath().add(x,y);
-        Double sub=new MyMath().sub(x,y);
-        Double mul=new MyMath().mul(x,y);
-        Double div=new MyMath().div(x,y);
 
-        assertTrue(add.equals(new Double(15)));
-        assertTrue(sub.equals(new Double(5)));
-        assertTrue(mul.equals(new Double(50)));
-        assertTrue(div.equals(new Double(2)));
+    public void testAdd() {
+        MyMath mm = new MyMath();
+        Double result = mm.add(10d, 5d);
+        //here I had to put delta, because there was an error
+        assertEquals(15.0d, result, 0.0001);
+
+    }
+
+    @Test
+    public void testSub() {
+        MyMath mm = new MyMath();
+        Double result = mm.sub(10d, 5d);
+        assertEquals(5.0d, result, 0.0001);
+    }
+
+    @Test
+    public void testMul() {
+        MyMath mm = new MyMath();
+        Double result = mm.mul(10d, 5d);
+        assertEquals(50.0d, result, 0.0001);
+    }
+
+    @Test
+    public void testDiv() {
+        MyMath mm = new MyMath();
+        Double result = mm.div(10d, 5d);
+        assertEquals(2d, result, 0.0001);
     }
 
     @Test
