@@ -3,6 +3,8 @@ package at.aau.serg.exercises.math;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -14,6 +16,7 @@ public class MyMathTest {
     public void setUp() {
         mm = new MyMath();
     }
+
     @Test
     public void testAdd() {
         MyMath mm = new MyMath();
@@ -44,29 +47,34 @@ public class MyMathTest {
         assertEquals(2d, result, 0.0001);
     }
 
+
     @Test
-    public void x2() {
-        Fraction f = new Fraction(1,1);
+    public void testFractionReduce_Simple() {
+        Fraction f = new Fraction(1, 1);
         Fraction reduced = mm.reduce(f);
-        assertEquals(new Integer(1),reduced.getNumerator());
-        assertEquals(new Integer(1),reduced.getDenumerator());
+        assertEquals(1, reduced.getNumerator(), 0.0001);
+        assertEquals(1, reduced.getDenumerator(), 0.0001);
+    }
 
-        f = new Fraction(10,6);
-        reduced = mm.reduce(f);
-        assertEquals(new Integer(5),reduced.getNumerator());
-        assertEquals(new Integer(3),reduced.getDenumerator());
+    @Test
+    public void testFractionReduce_Complex() {
+        Fraction f = new Fraction(10, 6);
+        Fraction reduced = mm.reduce(f);
+        assertEquals(5, reduced.getNumerator(), 0.0001);
+        assertEquals(3, reduced.getDenumerator(), 0.0001);
+    }
 
-        f = new Fraction(10,5);
-        reduced = mm.reduce(f);
-        assertEquals(new Integer(2),reduced.getNumerator());
-        assertEquals(new Integer(1),reduced.getDenumerator());
-
-        f = new Fraction(10,5);
+    @Test
+    public void testFractionToDouble_Simple() {
+        Fraction f = new Fraction(10, 5);
         Double aDouble = mm.toDouble(f);
-        assertEquals(new Double(2),aDouble);
+        assertEquals(2.0, aDouble, 0.0001);
+    }
 
-        f = new Fraction(10,4);
-        aDouble = mm.toDouble(f);
-        assertEquals(new Double(2.5d),aDouble);
+    @Test
+    public void testFractionToDouble_Decimal() {
+        Fraction f = new Fraction(10, 4);
+        Double aDouble = mm.toDouble(f);
+        assertEquals(2.5, aDouble, 0.0001);
     }
 }
