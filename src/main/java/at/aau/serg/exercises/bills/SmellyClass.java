@@ -21,6 +21,13 @@ public class SmellyClass {
             order.getItems().add(shippingItem);
         }
     }
+    private void printInvoice(Order order, Double finalPrice) {
+        System.out.println("Bill:");
+        for (Item item : order.getItems()) {
+            System.out.println(item.getName() + ": " + item.getPrice());
+        }
+        System.out.println("Total: " + finalPrice);
+    }
 
     public void createInvoice(Order order) {
 
@@ -28,13 +35,7 @@ public class SmellyClass {
         Double initialPrice=order.calculateTotalPrice();
         //check for shipping costs
         addShippingItem(order, initialPrice);
-
         Double finalPrice =order.calculateTotalPrice();
-
-        System.out.println("Bill:");
-        for (Item item : order.getItems()) {
-            System.out.println(item.getName()+": "+item.getPrice());
-        }
-        System.out.println("Total: "+finalPrice);
+        printInvoice(order, finalPrice);
     }
 }
