@@ -16,27 +16,20 @@ public class Order {
         return totalPrice;
     }
 
+    public Order(Long id, Customer customer, List<Item> items) {
+        this.id = id;
+        this.customer = customer;
+        this.items = items;
+    }
+
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Customer getCustomer() {
         return customer;
     }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
 }

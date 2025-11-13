@@ -5,9 +5,6 @@ public class SmellyClass {
     private void addShippingItem(Order order, Double currentPrice) {
         // check for shipping costs
         if (currentPrice <= 100) {
-            Item shippingItem = new Item();
-            shippingItem.setId(99l);
-            shippingItem.setName("Postage and Shipping");
             Double shippingPrice;
             if (currentPrice > 90) {
                 shippingPrice = currentPrice * 0.05;
@@ -16,8 +13,7 @@ public class SmellyClass {
             } else {
                 shippingPrice = 10d;
             }
-
-            shippingItem.setPrice(shippingPrice);
+            Item shippingItem = new Item(99L,shippingPrice, "Porto und Versand");
             order.getItems().add(shippingItem);
         }
     }
